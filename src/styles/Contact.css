@@ -1,0 +1,103 @@
+.contact {
+    background-color: black;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+.contact_title {
+    text-align: center;
+    margin: 0;
+    padding: 2em;
+    font-size: 2.5rem;
+}
+
+.contact_info {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+}
+
+.contact_row1 {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin-bottom: 1.5em;
+}
+
+.contact_name, .contact_phone {
+    width: 100%;
+    margin-right: 2em;
+}
+
+.contact_name_title, .contact_phone_title, .contact_subject_title {
+    margin: 0.5em;
+}
+
+.contact_name_input, .contact_phone_input {
+    width: 95%;
+    border: none;
+    border-bottom: white solid 1px;
+    margin-left: 2%;
+    background-color: black;
+    padding: 0.5em;
+    caret-color: white;
+    color: white;
+}
+
+.contact_name_input:focus, .contact_phone_input:focus {
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+
+.contact_row2, .contact_row3 {
+    width: 70%;
+}
+
+.contact_subject_input {
+    width: 100%;
+    border: none;
+    border-bottom: white solid 1px;
+    background-color: black;
+    padding: 0.5em;
+    caret-color: white;
+    color: white;
+}
+
+.contact_subject_input:focus {
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.contact_message_input {
+    width: 100%;
+    border: none;
+    border-bottom: white solid 1px;
+    background-color: black;
+    padding: 0.5em;
+    caret-color: white;
+    color: white;
+}
+
+.contact_message_input:focus {
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.submit_button {
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  font-size: 1rem;
+  padding: 1em 3em;
+  margin-top: 1em;
+  cursor: pointer;
+  margin-bottom: 6em;
+}
+
+.submit_button:hover {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+}

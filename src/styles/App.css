@@ -1,0 +1,255 @@
+#root {
+  margin: 0 auto;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  height: min-content;
+}
+
+.top_left {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: black;
+  color: white;
+  justify-content: center;
+  padding-left: 6%;
+  line-height: 1.2;
+}
+
+.top_left_word1 {
+  font-family: 'HK Grotesk', sans-serif;
+  font-size: 2rem;
+}
+
+.top_left_word2, .top_left_word3 {
+  font-family: 'HK Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.top_right {
+  width: 40%;
+}
+
+.top_right_img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.about {
+  background-color: rgb(235, 235, 235);
+  color: black;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  padding: 2em 8%;
+}
+
+.about_title {
+  margin: 0;
+  padding: 0.8em;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.featured_title, .projects_title {
+  margin: 0;
+  padding: 0.8em;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.about_text {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.about_text2 {
+  font-size: 1.2rem;
+  margin: 0 auto;
+  max-width: 70ch;
+}
+
+.featured {
+  background-color: white;
+  color: black;
+  font-family: 'Playfair Display', serif;
+}
+
+.featured_image1 {
+  margin: 3em auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+  flex-wrap: wrap; /* helps on smaller widths */
+}
+
+.featured_text_container {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  min-width: 18em;
+}
+
+.featured_text_title {
+  font-weight: 700;
+}
+
+.bukitBintang {
+  width: 30%;
+  min-width: 16em;
+  height: auto;
+}
+
+.line {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.featured_text_title2 {
+  font-weight: 700;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap; /* make it wrap on smaller screens */
+}
+
+.gallery_img_large {
+  width: 20em;
+  height: auto;
+  max-height: 26em;
+  object-fit: cover;
+  box-shadow: 0 0.25em 0.6em rgba(0,0,0,0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+.gallery_img_small {
+  width: 10em;
+  height: auto;
+  max-height: 14em;
+  object-fit: cover;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.gallery_img_small:hover {
+  opacity: 0.7;
+}
+
+.featured_text2 {
+  margin: 3em auto;
+  max-width: 70ch;
+  font-size: 1.2rem;
+  padding: 0 1em;
+}
+
+.projects {
+  font-family: 'Playfair Display', serif;
+  background-color: white;
+  align-items: center;
+  text-align: center;
+  margin-top: 0;
+  padding: 2em;
+}
+
+.projects_title {
+  color: black;
+  font-size: 2.2rem;
+  margin-top: 1em;
+}
+
+.projects_button {
+  background-color: black;
+  color: white;
+  border: 0.15em solid black;
+  font-size: 1rem;
+  padding: 1em 2.5em;
+  margin-bottom: 4em;
+  cursor: pointer;
+}
+
+.projects_button:hover {
+  background-color: white;
+  color: black;
+  border: 0.15em solid black;
+}
+
+/* 📱 Responsive tweaks */
+@media (max-width: 1024px) {
+  .top {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .top_left {
+    width: 100%;
+    padding: 2em;
+    align-items: center;
+  }
+
+  .top_right {
+    width: 100%;
+  }
+
+  .featured_image1 {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .featured_text_container {
+    width: 80%;
+    margin-left: 0;
+  }
+
+  .bukitBintang {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .top_left_word1 {
+    font-size: 1.5rem;
+  }
+
+  .top_left_word2, .top_left_word3 {
+    font-size: 2rem;
+  }
+
+  .about_text, .about_text2, .featured_text2 {
+    font-size: 1rem;
+  }
+
+  .gallery {
+    flex-direction: column;
+  }
+
+  .gallery_img_large {
+    width: 90%;
+  }
+
+  .gallery_img_small {
+    width: 60%;
+  }
+
+  .projects_button {
+    width: 80%;
+    font-size: 1rem;
+    padding: 1em;
+  }
+}
