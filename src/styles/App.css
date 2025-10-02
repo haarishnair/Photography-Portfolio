@@ -315,16 +315,17 @@
   .gallery {
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
   }
 
   .gallery_img_large {
     width: 95%;
-    max-height: 18em;
+    margin: 0 auto;
   }
 
   .gallery_img_small {
     width: 70%;
-    max-height: 10em;
+    margin: 0 auto;
   }
 
   .featured_text2 {
