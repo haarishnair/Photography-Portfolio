@@ -37,9 +37,8 @@
 
 .top_right_img {
   width: 100%;
-  height: auto;
-  padding: 0;
-  margin: 0;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about {
@@ -47,7 +46,7 @@
   color: black;
   font-family: 'Playfair Display', serif;
   text-align: center;
-  padding: 2em 8%;
+  padding: 1.5em 8% 7em;
 }
 
 .about_title {
@@ -171,7 +170,6 @@
 .projects_title {
   color: black;
   font-size: 2.2rem;
-  margin-top: 1em;
 }
 
 .projects_button {
@@ -193,19 +191,25 @@
 /* 📱 Responsive tweaks */
 @media (max-width: 1024px) {
   .top {
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
   }
 
   .top_left {
-    width: 100%;
-    padding: 2em;
+    width: 55%;
+    padding: 3.5em;
     align-items: center;
   }
 
   .top_right {
-    width: 100%;
+    width: 40%;
   }
+
+  .top_right_img {
+    height: 100%;
+    object-fit: cover;
+  }
+
 
   .featured_image1 {
     flex-direction: column;

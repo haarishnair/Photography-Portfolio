@@ -52,13 +52,15 @@
   }
 
   .nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8em;
+    flex-direction: row; 
+    overflow-x: auto;    
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; 
   }
 
   .nav li {
-    margin: 0.5em 0;
+    margin: 0 1em;
+    flex: 0 0 auto;
   }
 
   .nav a {

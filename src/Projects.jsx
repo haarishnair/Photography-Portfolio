@@ -24,23 +24,23 @@ function Projects() {
   return (
     <>
       <Navbar />
-      <section className="projects">
-        <div className="projects_text_container">
-          <p className='projects_title'>My Projects</p>
-          <p className='projects_text'>
+      <section className="portfolio">
+        <div className="portfolio_text_container">
+          <p className='portfolio_title'>My Projects</p>
+          <p className='portfolio_text'>
             Welcome to my portfolio. Here you’ll find a selection of my work. 
             Explore my projects to learn more about what I do. Feel free to hover on each image to see the project name.
           </p>
         </div>
 
-        <div className="projects_gallery">
+        <div className="portfolio_gallery">
           {projects.map((project) => (
-            <div className="projects_gallery_cover" key={project.id}>
+            <div className="portfolio_gallery_cover" key={project.id}>
               <Link to={`/project/${project.id}`}>
                 <img 
                   src={project.thumbnail} 
                   alt={project.title} 
-                  className="projects_gallery_cover_image"
+                  className="portfolio_gallery_cover_image"
                 />
                 <div className="overlay">
                   <p className="overlay-text">{project.title}</p>
