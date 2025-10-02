@@ -258,7 +258,6 @@
   }
 }
 
-/* 📱 iPhone / small screens */
 @media (max-width: 480px) {
   .top {
     flex-direction: row; 
@@ -272,7 +271,7 @@
   }
 
   .top_left_word1 {
-    font-size: 1.2rem;  /* smaller so it fits */
+    font-size: 1.2rem; 
   }
 
   .top_left_word2, .top_left_word3 {
@@ -305,11 +304,11 @@
   }
 
   .featured_text_container {
-    width: 100%;  
+    width: 80%;  
   }
 
   .bukitBintang {
-    width: 100%;
+    width: 80%;
     min-width: unset;
   }
 
@@ -326,6 +325,10 @@
   .gallery_img_small {
     width: 70%;
     max-height: 10em;
+  }
+
+  .featured_text2 {
+    width: 80%;
   }
 
   .projects_button {
