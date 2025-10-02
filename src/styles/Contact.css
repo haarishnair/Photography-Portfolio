@@ -23,22 +23,17 @@
     flex-direction: row;
     width: 70%;
     margin-bottom: 1.5em;
+    gap: 2em; /* space between name & phone */
 }
 
 .contact_name, .contact_phone {
-    width: 100%;
-    margin-right: 2em;
-}
-
-.contact_name_title, .contact_phone_title, .contact_subject_title {
-    margin: 0.5em;
+    flex: 1; /* make them equal width */
 }
 
 .contact_name_input, .contact_phone_input {
-    width: 95%;
+    width: 100%;
     border: none;
     border-bottom: white solid 1px;
-    margin-left: 2%;
     background-color: black;
     padding: 0.5em;
     caret-color: white;
@@ -49,7 +44,6 @@
     border-bottom: 1px solid white;
     outline: none;
 }
-
 
 .contact_row2, .contact_row3 {
     width: 70%;
@@ -100,4 +94,12 @@
   background-color: black;
   color: white;
   border: 2px solid white;
+}
+
+/* 📱 Mobile: stack name & phone vertically */
+@media (max-width: 48em) {
+  .contact_row1 {
+    flex-direction: column;
+    gap: 1em;
+  }
 }
