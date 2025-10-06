@@ -19,6 +19,12 @@ function Projects() {
       title: "Kuala Lumpur", 
       thumbnail: import.meta.env.VITE_PHOTO_2 
     },
+        { 
+      id: 4, 
+      title: "TE Appreciation & Networking Event", 
+      thumbnail: import.meta.env.VITE_PHOTO_49
+    },
+
   ];
 
   return (

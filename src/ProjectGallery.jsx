@@ -42,12 +42,17 @@ const projectData = {
     title: "Kuala Lumpur",
     images: generateImages(2, [38, 44]), 
   },
+  4: {
+    title: "TE Appreciation & Networking Event",
+    images: generateImages([45, 173]), 
+  },
+
 };
 
 const breakpointColumns = {
-  default: 3,   // desktops (≥ 64em)
-  64: 2,        // tablets (≥ 48em but < 64em)
-  48: 1,        // mobiles (< 48em)
+  default: 3,  
+  64: 2,       
+  48: 1,    
 };
 
 function ProjectPage() {
