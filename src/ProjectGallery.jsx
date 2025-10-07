@@ -46,7 +46,10 @@ const projectData = {
     title: "TE Appreciation & Networking Event",
     images: generateImages([45, 173]), 
   },
-
+  5: {
+    title: "Around the World Event",
+    images: generateImages([174, 204]), 
+  },
 };
 
 const breakpointColumns = {
