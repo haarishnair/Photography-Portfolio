@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import './styles/App.css'
+import { getCloudinaryUrl } from './services/cloudinary';
 
 import Navbar from './Navbar';
 import Contact from './Contact';
 
 function App() {
-  const photo1 = import.meta.env.VITE_PHOTO_1;
-  const photo2 = import.meta.env.VITE_PHOTO_2;
-  const photo3 = import.meta.env.VITE_PHOTO_3;
-  const photo4 = import.meta.env.VITE_PHOTO_4;
-  const photo5 = import.meta.env.VITE_PHOTO_5;
+  const photo1 = getCloudinaryUrl('static/profile_pic');
+  const photo2 = getCloudinaryUrl('static/featured_metro');
+  const photo3 = getCloudinaryUrl('static/carousel_1');
+  const photo4 = getCloudinaryUrl('static/carousel_2');
+  const photo5 = getCloudinaryUrl('static/carousel_3');
 
   const images = [photo3, photo4, photo5];
   const [index, setIndex] = useState(0);
@@ -54,13 +55,13 @@ function App() {
       <section className='featured' id='featured'>
         <p className='featured_title'>Featured</p>
         <div className='featured_image1'>
-          <img src={photo2} alt="Sample" className='bukitBintang'/>
+          <img src={photo2} alt="Sample" className='bukitBintang' />
           <div className='featured_text_container'>
             <p className='featured_text_title'>
               "Metropolitan Rhythm"
             </p>
             <p className='featured_text'>
-              In this photograph, my goal was to capture the heartbeat of a vibrant city—a place where life flows through the streets in a harmonious yet unpredictable dance. The urban landscape, framed by towering buildings and busy intersections, represents more than just structures; it mirrors the energy and spirit of the people who inhabit it. The bustling cars, pedestrians crossing paths, and the interplay of light and shadow are all part of a larger narrative of movement and connection. I edited this photo to highlight the subtle ray of sunlight that cuts through the urban sprawl. The sunlight softens the harsh lines of the cityscape, infusing warmth and vitality into the scene, and revealing the depth and humanity within the seemingly cold, structured environment. Through this image, I wanted to showcase not just the physical aspects of a city, but its essence—the invisible rhythm that pulses through its streets, the stories it holds, and the fleeting moments of tranquillity that give life to the urban environment. 
+              In this photograph, my goal was to capture the heartbeat of a vibrant city—a place where life flows through the streets in a harmonious yet unpredictable dance. The urban landscape, framed by towering buildings and busy intersections, represents more than just structures; it mirrors the energy and spirit of the people who inhabit it. The bustling cars, pedestrians crossing paths, and the interplay of light and shadow are all part of a larger narrative of movement and connection. I edited this photo to highlight the subtle ray of sunlight that cuts through the urban sprawl. The sunlight softens the harsh lines of the cityscape, infusing warmth and vitality into the scene, and revealing the depth and humanity within the seemingly cold, structured environment. Through this image, I wanted to showcase not just the physical aspects of a city, but its essence—the invisible rhythm that pulses through its streets, the stories it holds, and the fleeting moments of tranquillity that give life to the urban environment.
             </p>
           </div>
         </div>

@@ -1,91 +1,64 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from './Navbar';
 import Masonry from "react-masonry-css";
+import { fetchImagesByTag, getCloudinaryUrl } from './services/cloudinary';
 
 import "./styles/ProjectGallery.css";
 
-function generateImages(...ranges) {
-  const images = [];
-
-  ranges.forEach((range) => {
-    if (Array.isArray(range)) {
-      // Handle range [start, end]
-      const [start, end] = range;
-      for (let i = start; i <= end; i++) {
-        const key = `VITE_PHOTO_${i}`;
-        if (import.meta.env[key]) {
-          images.push(import.meta.env[key]);
-        }
-      }
-    } else {
-      // Handle single numbers
-      const key = `VITE_PHOTO_${range}`;
-      if (import.meta.env[key]) {
-        images.push(import.meta.env[key]);
-      }
-    }
-  });
-
-  return images;
-}
-
-const projectData = {
-  1: {
-    title: "Murder Mystery Speed Dating Event",
-    images: generateImages([6, 32]), 
-  },
-  2: {
-    title: "Bangkok",
-    images: generateImages([33, 37]),
-  },
-  3: {
-    title: "Kuala Lumpur",
-    images: generateImages(2, [38, 44]), 
-  },
-  4: {
-    title: "TE Appreciation & Networking Event",
-    images: generateImages([45, 173]), 
-  },
-  5: {
-    title: "Around the World Event",
-    images: generateImages([174, 204]), 
-  },
-};
-
 const breakpointColumns = {
-  default: 3,  
-  64: 2,       
-  48: 1,    
+  default: 3,
+  64: 2,
+  48: 1,
 };
 
 function ProjectPage() {
   const { id } = useParams();
-  const project = projectData[id];
+  // Decode the Title from the ID (which is the sanitized filename)
+  // Converting Back: "Murder_Mystery" -> "Murder Mystery"
+  // Assuming the ID passed is already the public ID part from Projects.jsx
+  const projectTitle = id.replace(/_/g, ' ');
 
-  if (!project) {
-    return <p style={{ color: "white" }}>Project not found</p>;
-  }
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadGallery() {
+      // Fetch images tagged "project_<ID>"
+      const tag = `project_${id}`;
+      const remoteImages = await fetchImagesByTag(tag);
+
+      const imageUrls = remoteImages.map(img => getCloudinaryUrl(img.public_id));
+      setImages(imageUrls);
+      setLoading(false);
+    }
+    loadGallery();
+  }, [id]);
 
   return (
     <>
       <Navbar />
       <div className="project_page">
-        <p className="project_title">{project.title}</p>
+        <p className="project_title">{projectTitle}</p>
 
-        <Masonry
-          breakpointCols={breakpointColumns}
-          className="masonry-grid"
-          columnClassName="masonry-grid_column"
-        >
-          {project.images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`${project.title} ${index + 1}`}
-              className="project_image"
-            />
-          ))}
-        </Masonry>
+        {loading ? (
+          <p style={{ color: "white", textAlign: "center" }}>Loading gallery...</p>
+        ) : (
+          <Masonry
+            breakpointCols={breakpointColumns}
+            className="masonry-grid"
+            columnClassName="masonry-grid_column"
+          >
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`${projectTitle} ${index + 1}`}
+                className="project_image"
+              />
+            ))}
+          </Masonry>
+        )}
       </div>
     </>
   );
