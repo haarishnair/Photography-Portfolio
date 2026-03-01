@@ -21,6 +21,7 @@ function ProjectPage() {
 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   useEffect(() => {
     async function loadGallery() {
@@ -28,8 +29,11 @@ function ProjectPage() {
       const tag = `project_${id}`;
       const remoteImages = await fetchImagesByTag(tag);
 
-      const imageUrls = remoteImages.map(img => getCloudinaryUrl(img.public_id, { width: 1200 }));
-      setImages(imageUrls);
+      const fetchedImages = remoteImages.map(img => ({
+        thumbnail: getCloudinaryUrl(img.public_id, { width: 800 }),
+        full: getCloudinaryUrl(img.public_id, { width: 1920 })
+      }));
+      setImages(fetchedImages);
       setLoading(false);
     }
     loadGallery();
@@ -49,15 +53,29 @@ function ProjectPage() {
             className="masonry-grid"
             columnClassName="masonry-grid_column"
           >
-            {images.map((img, index) => (
+            {images.map((imgObj, index) => (
               <img
                 key={index}
-                src={img}
+                src={imgObj.thumbnail}
                 alt={`${projectTitle} ${index + 1}`}
-                className="project_image"
+                className="project_image clickable"
+                onClick={() => setSelectedImageIndex(index)}
               />
             ))}
           </Masonry>
+        )}
+        )}
+
+        {selectedImageIndex !== null && (
+          <div className="lightbox" onClick={() => setSelectedImageIndex(null)}>
+            <span className="lightbox-close" onClick={() => setSelectedImageIndex(null)}>&times;</span>
+            <img
+              src={images[selectedImageIndex].full}
+              alt={`${projectTitle} fullscreen`}
+              className="lightbox-content"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
         )}
       </div>
     </>
