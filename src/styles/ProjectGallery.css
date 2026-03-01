@@ -100,3 +100,61 @@
 .lightbox-close:hover {
   color: #bbb;
 }
+
+/* Lightbox navigation */
+.lightbox-nav-left,
+.lightbox-nav-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 16px;
+  user-select: none;
+  z-index: 1002;
+  transition: 0.3s;
+}
+
+.lightbox-nav-left:hover,
+.lightbox-nav-right:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.lightbox-nav-left {
+  left: 20px;
+}
+
+.lightbox-nav-right {
+  right: 20px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+  z-index: 1002;
+}
+
+@media (max-width: 48em) {
+  .lightbox-nav-left,
+  .lightbox-nav-right {
+    font-size: 30px;
+    padding: 10px;
+  }
+  
+  .lightbox-nav-left {
+    left: 10px;
+  }
+
+  .lightbox-nav-right {
+    right: 10px;
+  }
+}

@@ -39,6 +39,16 @@ function ProjectPage() {
     loadGallery();
   }, [id]);
 
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setSelectedImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setSelectedImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <>
       <Navbar />
@@ -64,17 +74,29 @@ function ProjectPage() {
             ))}
           </Masonry>
         )}
-        )}
 
         {selectedImageIndex !== null && (
           <div className="lightbox" onClick={() => setSelectedImageIndex(null)}>
             <span className="lightbox-close" onClick={() => setSelectedImageIndex(null)}>&times;</span>
+
+            <div className="lightbox-nav-left" onClick={goPrev}>
+              &#10094;
+            </div>
+
             <img
               src={images[selectedImageIndex].full}
               alt={`${projectTitle} fullscreen`}
               className="lightbox-content"
               onClick={(e) => e.stopPropagation()}
             />
+
+            <div className="lightbox-nav-right" onClick={goNext}>
+              &#10095;
+            </div>
+
+            <div className="lightbox-counter">
+              {selectedImageIndex + 1} / {images.length}
+            </div>
           </div>
         )}
       </div>
