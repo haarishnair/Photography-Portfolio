@@ -28,7 +28,7 @@ export async function fetchImagesByTag(tag) {
 export function getCloudinaryUrl(publicId, options = {}) {
     // Basic URL construction
     const transformations = ['f_auto', 'q_auto'];
-    
+
     if (options.width) {
         transformations.push(`w_${options.width}`, 'c_limit');
     }
